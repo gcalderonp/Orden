@@ -13,7 +13,7 @@ class Orden extends Model
 
     //relacion 1 a n con orden_dets
     public function orden_dets(){
-        return $this->hasMany(orden_dets::class);
+        return $this->hasMany(OrdenDet::class);
     }
 
 }
