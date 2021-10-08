@@ -27,7 +27,7 @@ class OrdenDetController extends Controller
         $ordenes->cantidad = intval($request->get('cantidad'));
         $ordenes->estado = $request->get('status');
         $ordenes->save();
-        return json_encode($ordenes);
+        return json_encode([$ordenes, 'guardado']);
     }
 
     public function update(Request $request)
@@ -39,6 +39,6 @@ class OrdenDetController extends Controller
         $ordenes->cantidad = intval($request->get('cantidad'));
         $ordenes->estado = $request->get('status');
         $ordenes->save();
-        return json_encode($ordenes);
+        return json_encode('actualizado');
     }
 }

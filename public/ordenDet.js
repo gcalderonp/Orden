@@ -95,52 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
         let resp = await res.json()
-        console.log(resp)
-        update(resp)
-        // listadoDetalles(resp)
+
+        if(resp[1] == 'guardado'){
+            listadoDetalles(resp[0])
+        }
+
 
         $('#saveEdit').modal('hide');
 
     })
-
-
-    function update(resp) {
-
-        $('#listadoDetalle').load
-
-        // for (var i = 0, row; row = listadoDetalle.rows[i]; i++) {
-        //     let fila = listadoDetalle.rows[i].cells[0].textContent
-
-        //     if (fila == resp.id) {
-
-        //         for (var j = 1, col; col = row.cells[j]; j++) {
-        //             console.log(col.firstChild)
-        //             // $(listadoDetalle.rows[fila].cells[j]).textContent = f
-        //         }
-
-        //     } else {
-        //         console.log('no')
-        //     }
-
-        // for (var j = 0, col; col = row.cells[j]; j++) {
-
-        // }
-        // }
-
-        // let i = 0;
-        // let id = resp.id
-        // // let t = document.getElementById('flex1');
-
-        // $("#listadoDetalle tr").each(function() {
-        //     var val1 = $(listadoDetalle.rows[i].cells[0]).text();
-        //     console.log(val1);
-        //     if (id == val1) {
-        //         console.log('encontro')
-
-        //     }
-        //     i++;
-        // });
-    }
 
     function listadoDetalles(data) {
 
@@ -167,6 +130,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // listadoDetalle.rows[4].cells[1].innerText
 
 })
