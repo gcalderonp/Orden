@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\OrdenController;
+use App\Http\Controllers\OrdenDetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [OrdenController::class, 'index'])->name('index');
+Route::post('CrearOrden', [OrdenController::class, 'store'])->name('CrearOrden');
+
+Route::get('ordenDet/{id}', [OrdenDetController::class, 'index'])->name('ordenDet');
+Route::post('storeDet', [OrdenDetController::class, 'store']);
+Route::put('updateDet', [OrdenDetController::class, 'update']);
+
+

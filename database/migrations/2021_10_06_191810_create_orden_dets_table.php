@@ -15,10 +15,10 @@ class CreateOrdenDetsTable extends Migration
     {
         Schema::create('orden_dets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('orden_id');
-            $table->text('producto_descripcion');
-            $table->integer('cantidad');
-            $table->char('estado', 1);
+            $table->unsignedBigInteger('orden_id')->nullable();
+            $table->text('producto_descripcion')->nullable();
+            $table->integer('cantidad')->nullable();
+            $table->char('estado', 1)->nullable();
             $table->foreign('orden_id')->references('id')->on('ordens');
             $table->timestamps();
 

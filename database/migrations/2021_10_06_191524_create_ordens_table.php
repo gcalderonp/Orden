@@ -15,7 +15,7 @@ class CreateOrdensTable extends Migration
     {
         Schema::create('ordens', function (Blueprint $table) {
             $table->id();
-            $table->char('estado', 1);
+            $table->char('estado', 1)->nullable();
             $table->timestamps();
         });
     }
