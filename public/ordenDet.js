@@ -7,8 +7,14 @@ let nuevo = document.getElementById('nuevo')
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    function limpia() {
+        formulario[0].value = ''
+        formulario[1].value = ''
+        formulario[2].value = ''
+    }
 
     nuevo.addEventListener('click', () => {
+        limpia()
         formulario.setAttribute('action', 'storeDet')
         formulario.setAttribute('method', 'Post')
         $("#statusForm").prop('checked', true);
@@ -96,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let resp = await res.json()
 
-        if(resp[1] == 'guardado'){
+        if (resp[1] == 'guardado') {
             listadoDetalles(resp[0])
         }
 
