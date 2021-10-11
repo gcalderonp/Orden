@@ -7,8 +7,7 @@
 @section('content')
 
     <div class="container mt-5">
-
-        <table class="table table-striped mt-2">
+        <table id="tabla" class="table table-striped mt-2">
 
             <form id="formulario" action=" {{ route('CrearOrden') }} " method="POST">
                 @csrf
@@ -23,15 +22,6 @@
                 </tr>
             </thead>
             <tbody id="ordenes">
-
-                @foreach ($ordenes as $orden)
-
-                    <tr>
-                        <td scope="row"> <a href=" {{ route('ordenDet', $orden) }} ">Orden # {{ $orden->id }}</a> </td>
-                        <td> <input type="checkbox" name="status" class="status" @if ($orden->estado == 'A') checked > @endif </td>
-                    </tr>
-
-                @endforeach
 
             </tbody>
         </table>

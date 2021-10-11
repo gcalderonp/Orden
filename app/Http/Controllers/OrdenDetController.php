@@ -14,8 +14,19 @@ class OrdenDetController extends Controller
         $ordenes = OrdenDet::where('orden_id', $id)
             ->where('estado', 'A')
             ->get();
-        // $data = [$ordenes, $id];
+
         return view('orden.listadoorden', compact('ordenes', 'id'));
+    }
+
+    public function dataOrdenDet($id)
+    {
+
+        $ordenes = OrdenDet::where('orden_id', $id)
+            ->where('estado', 'A')
+            ->get();
+        // $data = [$ordenes, $id];
+        return json_encode($ordenes);
+
     }
 
     public function store(Request $request)
@@ -28,6 +39,7 @@ class OrdenDetController extends Controller
         $ordenes->estado = $request->get('status');
         $ordenes->save();
         return json_encode([$ordenes, 'guardado']);
+
     }
 
     public function update(Request $request)
@@ -39,6 +51,6 @@ class OrdenDetController extends Controller
         $ordenes->cantidad = intval($request->get('cantidad'));
         $ordenes->estado = $request->get('status');
         $ordenes->save();
-        return json_encode('actualizado');
+        return json_encode([$ordenes, 'actualizado']);
     }
 }

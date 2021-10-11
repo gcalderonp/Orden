@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\Redirect;
 class OrdenController extends Controller
 {
     public function index(){
+        // $ordenes = Orden::all();
+        return view('orden.index');
+    }
+
+    public function data(){
         $ordenes = Orden::all();
-        return view('orden.index', compact('ordenes'));
+        return json_encode($ordenes);
     }
 
     public function store(Request $request){

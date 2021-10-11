@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [OrdenController::class, 'index'])->name('index');
 Route::post('CrearOrden', [OrdenController::class, 'store'])->name('CrearOrden');
+Route::get('data', [OrdenController::class, 'data'])->name('data');
+
 
 Route::get('ordenDet/{id}', [OrdenDetController::class, 'index'])->name('ordenDet');
+Route::get('dataOrdenDet/{id}', [OrdenDetController::class, 'dataOrdenDet']);
 Route::post('storeDet', [OrdenDetController::class, 'store']);
 Route::put('updateDet', [OrdenDetController::class, 'update']);
 

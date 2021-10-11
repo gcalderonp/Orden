@@ -14,7 +14,7 @@
             <a class="btn btn-warning mr-3" href="{{ route('index') }}">Atras</a>
         </div>
 
-        <input type="text" name="ordenCab" id="ordenCab" value=" {{ $id }} " hidden>
+        <input  type="text" name="ordenCab" id="ordenCab" value=" {{ $id }} " hidden>
 
         <table id="tabla" class="table table-striped mt-2">
 
@@ -28,22 +28,6 @@
                 </tr>
             </thead>
             <tbody id="listadoDetalle">
-
-                @foreach ($ordenes as $orden)
-
-                    <tr>
-                        <td scope="row">
-                            <a class="edit" href="" data-toggle="modal"
-                                data-target="#saveEdit">{{ $orden->id }}</a>
-                        </td>
-                        <td id="producto"> {{ $orden->producto_descripcion }} </td>
-                        <td id="cantidad"> {{ $orden->cantidad }} </td>
-
-                        <td><input readonly="readonly" type="checkbox" name="status" class="statusRead"
-                                @if ($orden->estado == 'A') checked value="A" @else value="I"  @endif> </td>
-                    </tr>
-
-                @endforeach
 
             </tbody>
         </table>
@@ -98,7 +82,7 @@
 
                                 </div>
 
-                                <div class="col-6">
+                                <div id="divStatus" class="col-6">
 
                                     <div class="form-check align-items-center">
 
